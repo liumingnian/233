@@ -1,0 +1,38 @@
+.nav {
+    width: auto;
+    height: 62px;
+    margin: 0 100px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fff;
+}
+
+.nav .nav-left,
+.nav .nav-right {
+    display: flex;
+    justify-content: space-between;
+    line-height: 62px;
+    font-size: 20px;
+}
+
+.nav .nav-left .active {
+    padding-left: 40px;
+}
+
+.nav .nav-right .active {
+    padding-right: 40px;
+}
+
+.nav .nav-left .active-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+}
+
+.nav .nav-left img {
+    width: auto;
+    height: 24px;
+}

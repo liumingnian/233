@@ -1,0 +1,90 @@
+.search-box {
+    width: auto;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.search-box .describe {
+    width: 60%;
+    position: absolute;
+    display: grid;
+    place-items: center;
+    z-index: 99;
+}
+
+.search-box .describe .search-title {
+    font-size: 36px;
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+
+.search-box .bg-img img {
+    max-width: none;
+    z-index: 1;
+}
+
+.search-box .search-input {
+    width: 60%;
+    margin: 38px 0 24px 0;
+}
+
+.search-box .search-input .input-box {
+    width: 100%;
+    position: relative;
+}
+
+.search-box .search-input .input-box input {
+    width: 100%;
+    height: 48px;
+    border-radius: 4px;
+    padding: 0 12px;
+    border: 1px solid #949494;
+    background-color: #fff;
+}
+
+.search-box .search-input .input-box input:focus {
+    border: 1px solid #008ee0;
+}
+
+.search-box .search-input .input-describe {
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    padding-left: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #949494;
+    display: flex;
+    position: absolute;
+}
+
+.search-box .search-input .input-describe img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+
+.describe ul li {
+    font-size: 16px;
+    color: #303030;
+}
+
+.search-box .describe .search-title,
+.search-box .describe .search-subtitle {
+    text-align: center;
+    color: #303030;
+}
+
+.search-box .search-input,
+.search-box .describe ul {
+    display: flex;
+    justify-content: center;
+}
+.describe ul .tags{
+    margin: 0 10px;
+}
