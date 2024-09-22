@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import Search from "../components/Search"
 import Filters from "../components/Filters"
+import ImgList from "../components/ImgList"
 import "../styles/globals.css"
 /**
  * 
@@ -12,7 +13,7 @@ export default function Home() {
       <Header />
       <Search />
       <Filters />
-      <div className="img-box"></div>
+      <ImgList />
       <div className="footer"></div>
     </main>
   );

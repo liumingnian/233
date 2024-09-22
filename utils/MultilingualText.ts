@@ -39,12 +39,12 @@ export const MultilingualText = {
         }, {
             title: {
                 CN: "分类",
-                EN: "tags",
+                EN: "          ",
             },
             describe: {
                 CN: "颜色筛选",
                 EN: "tags Filter",
             },
-        }
+        },
     ],
 };

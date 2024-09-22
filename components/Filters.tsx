@@ -4,22 +4,30 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../store';
-import "../styles/Filters.css"
-import { MultilingualText } from "../utils/MultilingualText"
+import "../styles/Filters.css";
+import Color from "./Color";
+import Selector from "./Selector";
+import Grade from "./Grade";
+
+// import { SketchPicker } from "react-color";
+// import { MultilingualText } from "../utils/MultilingualText";
 
 interface FiltersProps { };
 
+// const tagName: string[] = [
+//     "color",
+//     "sizes",
+//     "tags",
+//     "grade"
+// ];
+
 const Filters: React.FC<FiltersProps> = ({ }) => {
-    const language = useSelector((state: RootState) => state.language);
     useEffect(() => { }, []);
     return (
         <div className="filters">
-            {MultilingualText.filters.map((value, index) => (
-                <div className={`filters-${value.title['EN']}`} key={index}>
-                    <div className="title">{value.title[language]}</div>
-                    <div className="box">{value.title[language]}</div>
-                </div>
-            ))}
+            <Color />
+            <Selector />
+            <Grade />
         </div>
     );
 };

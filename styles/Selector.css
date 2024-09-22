@@ -1,0 +1,77 @@
+.selector {
+    width: 50%;
+    display: flex;
+}
+
+.selector .sizes,
+.selector .tags {
+    width: 50%;
+    margin: 0 20px;
+    position: relative;
+}
+
+
+.selector .title {
+    font-size: 18px;
+    color: #666666;
+}
+
+.selector .input {
+    height: 48px;
+    margin-top: 12px;
+    padding: 0 12px;
+    border: 1px solid #949494;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #949494;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.selector .input input {
+    outline: none;
+    width: 100%;
+    height: 48px;
+    opacity: 0;
+}
+
+.selector .input .tag-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+}
+
+.selector .input .selector-btn {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.selector .input .selector-btn img {
+    width: 26px;
+    transition: transform 0.2s;
+    transform: rotate(0deg);
+}
+
+.selector .select-lists {
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 16px;
+    display: none;
+    position: absolute;
+    transition: transform 0.3s;
+}
+
+.selector .select-lists div {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.selector .select-lists div:hover {
+    color: #ffffff;
+    background-color: #0878f8;
+}
