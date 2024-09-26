@@ -1,0 +1,14 @@
+.upload-pictures{
+    padding: 40px 0;
+    color: #333333;
+    background-color: #ffffff;
+    text-align: center;
+}
+.upload-pictures .title{
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+.upload-pictures .subtitle{
+    font-size: 16px;
+    margin-bottom: 38px;
+}
