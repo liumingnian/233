@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({ name }) => {
     useEffect(() => { }, []);
     return (
         <div className="btn">
-            <div className="text">
+            <div className="text c-btn">
                 {name}
                 <div className="wave"></div>
             </div>

@@ -1,7 +1,7 @@
 .nav {
     width: auto;
     height: 62px;
-    margin: 0 100px;
+    margin: 0 120px;
     display: flex;
     display: -webkit-flex;
     justify-content: space-between;
@@ -12,20 +12,21 @@
 .nav .nav-left,
 .nav .nav-right {
     display: flex;
-    justify-content: space-between;
+    position: relative;
     line-height: 62px;
     font-size: 20px;
 }
 
-.nav .nav-left .active {
+.nav .nav-left .list,
+.nav .nav-right li {
     padding-left: 40px;
 }
 
-.nav .nav-right .active {
-    padding-right: 40px;
+.nav .nav-left li a {
+    position: relative;
 }
 
-.nav .nav-left .active-img {
+.nav .nav-left .logo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,4 +36,57 @@
 .nav .nav-left img {
     width: auto;
     height: 24px;
+}
+
+.nav .nav-right li {
+    display: flex;
+    align-items: center;
+}
+
+.nav .nav-right .nav-login {
+    width: 32px;
+    height: 32px;
+    background-color: #E4E4E4;
+    border-radius: 32px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .nav-right a {
+    padding: 3px 12px;
+}
+
+.nav .nav-right a img {
+    width: 24px;
+    height: 24px;
+}
+
+.nav .nav-right .nav-login img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.nav .nav-left li a:hover::after {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.nav .nav-left li a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    background-color: #333333;
+    opacity: 0;
+}
+
+.nav .nav-right .nav-login:hover img {
+    opacity: 0.8;
 }

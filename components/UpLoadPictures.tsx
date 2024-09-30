@@ -1,5 +1,5 @@
 /**
- * 通用按钮
+ * Home图片上传
  */
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";

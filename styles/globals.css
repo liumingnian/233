@@ -31,10 +31,23 @@ input {
   border: 0;
   padding: 0;
   margin: 0;
-  background: transparent; /* 使背景透明 */
-  font-family: inherit;    /* 继承字体样式 */
-  font-size: inherit;      /* 继承字体大小 */
-  box-shadow: none;        /* 去除阴影 */
+  background: transparent;
+  /* 使背景透明 */
+  font-family: inherit;
+  /* 继承字体样式 */
+  font-size: inherit;
+  /* 继承字体大小 */
+  box-shadow: none;
+  /* 去除阴影 */
+}
+
+.main-box {
+  position: relative;
+}
+
+.c-btn{
+  background-color: #0099FF;
+  border-radius: 4px;
 }
 
 @layer utilities {

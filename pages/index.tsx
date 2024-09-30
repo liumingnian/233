@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import ToTopButton from "../components/ToTopButton"
 import Search from "../components/Search"
 import Filters from "../components/Filters"
 import ImgList from "../components/ImgList"
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main className="main-box">
       <Header />
+      <ToTopButton />
       <Search />
       <Filters />
       <ImgList />
