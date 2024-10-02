@@ -6,10 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../store';
 import "../styles/ImgList.css";
 import Button from "../components/Button"
-import { Imgs } from "../utils/Imgs";
 
-interface ImgListProps { };
-interface Lists {
+interface ImgListProps {
+    imgListData: any;
+};
+type Lists = {
     name: string,
     data: {
         user: string,
@@ -23,11 +24,25 @@ interface Lists {
     },
 };
 
-const lists: Lists[] = Imgs;
-
-const ImgList: React.FC<ImgListProps> = ({ }) => {
+const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
     const btnNames = "加载中...";
-    useEffect(() => { }, []);
+    const [lists, stateLists] = useState<Lists[]>([]);
+
+    useEffect(() => {
+        const getImgs = async () => {
+            const res = await fetch("/api/imgsRouter");
+            const data = await res.json();
+            stateLists(data);
+        };
+        getImgs();
+    }, []);
+
+    //监听检索结果，如有
+    useEffect(() => {
+        stateLists([]);
+        stateLists(prevLists => [...prevLists, ...imgListData]);
+    }, [imgListData]);
+
     return (
         <div className="img-lists">
             <ul>

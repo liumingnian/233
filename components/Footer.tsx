@@ -19,10 +19,18 @@ const lists: Lists = {
 
 const Footer: React.FC<FooterProps> = ({ }) => {
     const [getTime, setTime] = useState<number | null>(null);
+    const [getData, setData] = useState<string>("");
 
     useEffect(() => {
         const year = new Date().getFullYear();
-        setTime(year)
+        setTime(year);
+
+        // const fetchMessage = async () => {
+        //     const res = await fetch('/api/test');
+        //     const data = await res.json();
+        //     setData(data.message);
+        // };
+        // fetchMessage();
     }, []);
 
 

@@ -4,15 +4,16 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../store';
-// import { setLanguage } from '../store/languageSlice';
 import "../styles/Search.css";
 import { MultilingualText } from "../utils/MultilingualText";
 import { ImgData } from "../data/imgList";
 import { Tags } from "../utils/Tags";
 
-interface SearchProps { }
+interface SearchProps {
+    setImgListData: any;
+};
 
-const Search: React.FC<SearchProps> = ({ }) => {
+const Search: React.FC<SearchProps> = ({ setImgListData }) => {
     const language = useSelector((state: RootState) => state.language);
     const tags = Tags.homeTags;
     const [isVisible, setIsVisible] = useState(true);
@@ -27,6 +28,19 @@ const Search: React.FC<SearchProps> = ({ }) => {
     };
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsInputValue(event.target.value)
+    };
+
+    const inputSubmit = async (event: any) => {
+        event.preventDefault();
+        const response = await fetch("/api/inputRouter", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ searchInputKey: isInputValue }),
+        });
+        const data = await response.json();
+        setImgListData(data);
     };
 
     return (
@@ -45,11 +59,14 @@ const Search: React.FC<SearchProps> = ({ }) => {
                             <img src="/icon/seatch.svg" alt="Search Icon" />
                             <p>{MultilingualText.searchInput[language]}</p>
                         </div>
-                        <input type="text"
-                            value={isInputValue}
-                            onChange={handleChange}
-                            onFocus={onHandleFocus}
-                            onBlur={onHandleBlur} />
+                        <form onSubmit={inputSubmit} action="">
+                            <input type=""
+                                id="searchInputKey"
+                                value={isInputValue}
+                                onChange={handleChange}
+                                onFocus={onHandleFocus}
+                                onBlur={onHandleBlur} />
+                        </form>
                     </div>
                 </div>
                 <ul>

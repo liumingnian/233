@@ -5,19 +5,21 @@ import Filters from "../components/Filters"
 import ImgList from "../components/ImgList"
 import UpLoadPictures from "../components/UpLoadPictures"
 import Footer from "../components/Footer"
+import React, { useState, useEffect } from "react";
 import "../styles/globals.css"
 /**
  * 
  * @returns index为默认路由文件
  */
 export default function Home() {
+  const [imgListData, setImgListData] = useState<string[]>([]);
   return (
     <main className="main-box">
       <Header />
       <ToTopButton />
-      <Search />
+      <Search setImgListData={setImgListData} />
       <Filters />
-      <ImgList />
+      <ImgList imgListData={imgListData} />
       <UpLoadPictures />
       <Footer />
     </main>

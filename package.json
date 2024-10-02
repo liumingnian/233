@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run dev:open && next dev",
-    "dev:open": "start http:/localhost:3000",
+    "dev": "node api/server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node api/server.js",
     "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
+    "express": "^4.21.0",
     "next": "^14.2.13",
     "react": "^18",
     "react-color": "^2.19.3",

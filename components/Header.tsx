@@ -3,8 +3,9 @@
  */
 import Link from 'next/link';
 import '../styles/Header.css';
+import { use, useEffect, useState } from 'react';
 
-interface HeaderProps {};
+interface HeaderProps { };
 
 const Header: React.FC<HeaderProps> = ({ }) => {
     const menuList = {
