@@ -1,0 +1,119 @@
+.img-lists {
+    width: auto;
+    padding: 20px 120px;
+    background-color: #F2F2F2;
+    position: relative;
+    z-index: 1;
+}
+
+.img-lists ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-lists ul li {
+    flex-grow: 1;
+    margin: 4px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.img-lists ul li::after {
+    content: "";
+    flex-grow: 10;
+}
+
+.img-lists.img-box {}
+
+.img-lists .img-box img {
+    height: 200px;
+    max-width: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.img-lists .img-top-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+}
+
+.img-lists .user-icon {
+    width: 30px;
+    height: 30px;
+    text-align: left;
+}
+
+.img-lists .user-icon img {
+    border-radius: 30px;
+}
+
+.img-lists .state-icon {
+    height: 30px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    background-color: #ffffff;
+}
+
+.img-lists .state-icon img {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+.img-lists .state-icon p {
+    font-size: 14px;
+    color: #999999;
+}
+
+.img-lists .img-bottom-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 12px;
+}
+
+.img-lists .img-bottom-info .colors {
+    display: flex;
+}
+
+.img-lists .img-bottom-info .colors div {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    border-radius: 4px;
+}
+
+.img-lists .img-bottom-info .infos {
+    display: flex;
+    font-size: 14px;
+    color: #999999;
+}
+
+.img-lists .img-bottom-info .infos div {
+    display: flex;
+    align-items: center;
+}
+
+.img-lists .img-bottom-info .infos .info {
+    margin-right: 12px;
+}
+
+.img-lists .img-bottom-info .infos div img {
+    width: 20px;
+    height: 20px;
+}
+
+.img-lists .img-bottom-info .infos div span {
+    margin-right: 4px;
+}
+
+.img-lists .load-btn {
+    margin: 60px 0;
+}

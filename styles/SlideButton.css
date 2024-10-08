@@ -1,0 +1,19 @@
+.slide-button {
+    width: 80px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #E4E4E4;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.slide-button div {
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    margin-left: 2px;
+    background-color: #fff;
+    transition: transform 0.2s;
+}

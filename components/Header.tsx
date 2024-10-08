@@ -1,41 +1,52 @@
 /**
  * 首页组件
  */
+import Link from 'next/link';
 import '../styles/Header.css';
+import { use, useEffect, useState } from 'react';
 
-interface HeaderProps {
-    // left: string[];
-    // right: string[];
-}
+interface HeaderProps { };
+
 const Header: React.FC<HeaderProps> = ({ }) => {
     const menuList = {
         left: ["/next.svg", "首页", "推荐", "每周排行", "图组专辑"],
-        right: ["上传", "登录"],
+        toLink: ["", "/", "/router/Recommended", "/router/Rankings", "/router/Collection"],
     };
-    function navMenuSpacing(i: number, direction: string, max: number) {
-        if (i != 0 && direction == "left") return "active";
-        if (i == 0 && direction == "left") return "active-img";
-        if (i < (max - 1) && direction == "right") return "active";
-        return;
-    }
+
+    function navMenuSpacing(i: number, direction: string) {
+        if (i == 0 && direction == "left") return "logo";
+        if (i != 0 && direction == "left") return "list";
+        return "";
+    };
+
     return (
         <header>
             <div className="nav">
                 <ul className="nav-left">
                     {menuList.left.map((link, index) => (
-                        <li className={navMenuSpacing(index, "left", menuList.left.length)} key={index}>
+                        <li className={navMenuSpacing(index, "left")} key={index}>
                             {link.endsWith(".svg") ? (
                                 <img src={link} alt={``} />
                             ) : (
-                                link
+                                <Link href={menuList.toLink[index]}
+                                    passHref>
+                                    {link}
+                                </Link>
                             )}
                         </li>
                     ))}
                 </ul>
                 <ul className="nav-right">
-                    {menuList.right.map((link, index) => (
-                        <li className={navMenuSpacing(index, "right", menuList.right.length)} key={index}>{link}</li>
-                    ))}
+                    <li>
+                        <Link href={"/router/UpLoad"} className="nav-upload c-btn">
+                            <img src={`/icon/upload.svg`} alt="" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href={"/router/Login"} className='nav-login c-btn'>
+                            <img src={`/icon/user-invalid.svg`} alt="" />
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </header>
