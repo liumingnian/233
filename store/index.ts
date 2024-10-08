@@ -3,11 +3,13 @@
  * languageSlice挂载到store
  */
 import { configureStore } from "@reduxjs/toolkit";
+import FiltersSlice from "./filters";
 import LanguageSlice from "./languageSlice";
 
 export const store = configureStore({
     reducer: {
         language: LanguageSlice,
+        filters: FiltersSlice,
     }
 });
 

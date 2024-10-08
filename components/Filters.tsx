@@ -9,17 +9,8 @@ import Color from "./Color";
 import Selector from "./Selector";
 import Grade from "./Grade";
 
-// import { SketchPicker } from "react-color";
-// import { MultilingualText } from "../utils/MultilingualText";
-
-interface FiltersProps { };
-
-// const tagName: string[] = [
-//     "color",
-//     "sizes",
-//     "tags",
-//     "grade"
-// ];
+interface FiltersProps {
+};
 
 const Filters: React.FC<FiltersProps> = ({ }) => {
     useEffect(() => { }, []);

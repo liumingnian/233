@@ -2,21 +2,36 @@
  * 颜色筛选器
  */
 import React, { useState, useEffect } from "react";
-import { RootState } from '../store';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilterState } from '../store/filters';
 import "../styles/Color.css"
 
 interface ColorsProps { };
 
 const Color: React.FC<ColorsProps> = ({ }) => {
+    const dispatch = useDispatch();
     const [colorValue, setColorValue] = useState("");
     const [isVisible, setIsVisible] = useState(false);
     const [fontColor, setFontColor] = useState("");
 
     const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setColorValue(event.target.value);
+        const newColor = event.target.value;
+        setColorValue(newColor);
         setIsVisible(true);
-        setFontColor("#000000")
+        setFontColor("");
     };
+
+    const handleInputBlur = () => {
+        if (colorValue.length === 7) {
+            dispatch(setFilterState({ key: "color", value: colorValue }));
+        }
+    };
+
+    useEffect(() => {
+        if (colorValue.length === 7) {
+            setFontColor(colorValue);
+        }
+    }, [colorValue]);
 
     return (
         <div className="color">
@@ -29,6 +44,7 @@ const Color: React.FC<ColorsProps> = ({ }) => {
                     <input type="color"
                         value={colorValue}
                         onChange={handleColorChange}
+                        onBlur={handleInputBlur}
                         name="颜色选取" />
                 </div>
             </div>

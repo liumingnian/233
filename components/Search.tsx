@@ -8,18 +8,21 @@ import "../styles/Search.css";
 import { MultilingualText } from "../utils/MultilingualText";
 import { ImgData } from "../data/imgList";
 import { Tags } from "../utils/Tags";
+import { Lists } from './interface/Lists';
+import { setFilterState } from '../store/filters';
+import { apiGetImages } from "../utils/apiGetImages";
 
 interface SearchProps {
-    setImgListData: any;
+    setImgListData: (data: Lists[]) => void;
 };
 
 const Search: React.FC<SearchProps> = ({ setImgListData }) => {
+    const dispatch = useDispatch();
     const language = useSelector((state: RootState) => state.language);
     const tags = Tags.homeTags;
     const [isVisible, setIsVisible] = useState(true);
     const [isInputValue, setIsInputValue] = useState("");
-
-    useEffect(() => { }, []);
+    const getFiltersValue = useSelector((state: RootState) => state.filters);
 
     const onHandleFocus = () => { setIsVisible(false); };
     const onHandleBlur = () => {
@@ -28,19 +31,14 @@ const Search: React.FC<SearchProps> = ({ setImgListData }) => {
     };
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsInputValue(event.target.value)
+        dispatch(setFilterState({ key: "key", value: event.target.value }));
     };
 
     const inputSubmit = async (event: any) => {
         event.preventDefault();
-        const response = await fetch("/api/inputRouter", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ searchInputKey: isInputValue }),
-        });
-        const data = await response.json();
-        setImgListData(data);
+        const response = await apiGetImages("/api/inputRouter", getFiltersValue);
+        setImgListData(response);
+        //dispatch(setFilterState({ key: "key", value: "" }));
     };
 
     return (
