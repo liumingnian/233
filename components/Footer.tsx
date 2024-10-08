@@ -24,13 +24,6 @@ const Footer: React.FC<FooterProps> = ({ }) => {
     useEffect(() => {
         const year = new Date().getFullYear();
         setTime(year);
-
-        // const fetchMessage = async () => {
-        //     const res = await fetch('/api/test');
-        //     const data = await res.json();
-        //     setData(data.message);
-        // };
-        // fetchMessage();
     }, []);
 
 

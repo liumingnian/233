@@ -3,6 +3,8 @@
  */
 
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilterState } from '../store/filters';
 import { RootState } from '../store';
 import "../styles/Selector.css"
 
@@ -42,18 +44,18 @@ const lists: Lists[] = [
 ];
 
 const Selector: React.FC<SelectorsProps> = ({ }) => {
+    const dispatch = useDispatch();
     const [isVisible, setIsVisible] = useState<number | null>(null);
     const [isInputValue, setIsInputValue] = useState<string[]>(Array(lists.length).fill(""));
     const [isIconRotate, setIsIconRotate] = useState("rotate(0deg)");
     const [fontColor, setFontColor] = useState<string[]>(Array(lists.length).fill("#666666"));
     const setRotate = "rotate(180deg)";
 
-    useEffect(() => { }, []);
-
     const btnOnClick = (index: number) => {
         setIsVisible(event => (event === index ? null : index));
         setIsIconRotate(setRotate);
     };
+
     const inputChange = (index: number, value: string) => {
         setIsInputValue(values => {
             const newValues = [...values];
@@ -67,6 +69,16 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
         });
         setIsVisible(null);
     };
+
+    // const handleInputBlur = () => {
+    //     dispatch(setFilterState({ key: "color", value: "" }));
+    // };
+
+    // useEffect(() => {
+    //     if (colorValue.length === 7) {
+    //         setFontColor(colorValue);
+    //     }
+    // }, [colorValue]);
 
     return (
         <div className="selector">
