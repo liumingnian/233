@@ -23,18 +23,37 @@ const getData = (value) => {
     });
 };
 
+function activeShapes(size) {
+    if (size.length > 0) {
+        const width = size[0];
+        const height = size[1];
+        switch (true) {
+            case width > height:
+                return "横图";
+            case width < height:
+                return "竖图";
+            case width === height:
+                return "正方形";
+            default:
+                break;
+        };
+    } else {
+        return "";
+    }
+};
+
+
 function filterData(target, conditionCallback) {
-    let result = []
-    target.forEach((value)=>{
+    let result = [];
+    target.forEach((value) => {
         if (conditionCallback(value)) {
             result.push(value);
         }
-    })
-    return result
-}
+    });
+    return result;
+};
 
 router.post("/", async (req, res) => {
-    // const list = [];
     const { key, color, size, tags, grade } = req.body;
     const dataFile = path.join(__dirname, "../../data/HoneImgList.json");
     try {
@@ -43,52 +62,26 @@ router.post("/", async (req, res) => {
             return res.status(404).json({ message: "没有找到匹配的数据" });
         }
 
-        //key
-        //color
-        //size
-        //tags
+        /**
+         * key:检索框
+         * color:颜色过滤器
+         * size:形状过滤器
+         * tags:标签过滤器
+         */
+
         let result = filterData(data, value => {
             return !key || value.name === key
-        })
+        });
         result = filterData(result, value => {
             return !color || value.data.colors.indexOf(color) !== -1
-        })
+        });
         result = filterData(result, value => {
-            return !size || value.data.size === size
-        })
+            const shape = activeShapes(value.data.size);
+            return !size || shape === size;
+        });
         result = filterData(result, value => {
             return !tags || value.data.tags.indexOf(tags) !== -1
-        })
-
-
-        // if (key !== "") {
-        //     data.forEach((value) => {
-        //         if (value.name === key) {
-        //             list.push(value);
-        //         }
-        //     });
-        // }
-        // if (color !== "") {
-        //     data.forEach((value) => {
-        //         if (value.data.colors.indexOf(color) !== -1) {
-        //             list.push(value);
-        //         }
-        //     });
-        // }
-        // if (size !== "") {
-        //     data.forEach((value) => {
-        //         if (value.data.size === size) {
-        //             list.push(value);
-        //         }
-        //     });
-        // }
-        // if (tags !== "") {
-        //     data.forEach((value) => {
-        //         if (value.data.tags.indexOf(tags) !== -1) {
-        //             list.push(value);
-        //         }
-        //     });
-        // }
+        });
         res.status(200).json(result);
 
     } catch (error) {
