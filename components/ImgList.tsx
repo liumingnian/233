@@ -1,7 +1,7 @@
 /**
  * 首页过滤器组件
  */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '../store';
 import { Lists } from './interface/Lists';
@@ -35,23 +35,12 @@ const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
 
     //color&size&tags检索并获取数据
     useEffect(() => {
-        const filtersData = async () => {
+        const fetchFiltersData = async () => {
             const response = await apiGetImages("/api/inputRouter", getFiltersValue);
-            const data: Lists[] = response;
-            filtersEvent(data);
+            stateLists(response);
         }
-        filtersData();
-    }, [getFiltersValue.color, getFiltersValue.size, getFiltersValue.grade]);
-
-    const filtersEvent = (data: Lists[]) => {
-        const filteredLists: Lists[] = [];
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].data.colors.indexOf(getFiltersValue.color) !== -1) {
-                filteredLists.push(data[i]);
-            }
-        };
-        stateLists(filteredLists);
-    };
+        fetchFiltersData();
+    }, [getFiltersValue.color, getFiltersValue.size, getFiltersValue.tags]);
 
     return (
         <div className="img-lists">

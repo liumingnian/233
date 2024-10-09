@@ -5,7 +5,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "3688 × 1920",
+            "size": [3688,1920],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -23,7 +23,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "1334 × 750",
+            "size": [1334,750],
             "messagesNumber": "",
             "url": "/imgs/img_2.jpg",
             "colors": [
@@ -41,7 +41,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "5016 × 3541",
+            "size": [5016,3541],
             "messagesNumber": "",
             "url": "/imgs/img_3.jpg",
             "colors": [
@@ -59,7 +59,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "1902 × 1029",
+            "size": [1902,1029],
             "messagesNumber": "",
             "url": "/imgs/img_4.png",
             "colors": [
@@ -77,7 +77,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "1902 × 1029",
+            "size": [1902,1029],
             "messagesNumber": "",
             "url": "/imgs/img_4.png",
             "colors": [
@@ -95,7 +95,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "2282 × 1093",
+            "size": [2282,1093],
             "messagesNumber": "",
             "url": "/imgs/img_5.png",
             "colors": [
@@ -113,7 +113,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_7.jpg",
             "colors": [
@@ -131,7 +131,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "",
+            "size": [11,22],
             "messagesNumber": "",
             "url": "/imgs/img_6.jpg",
             "colors": [
@@ -149,7 +149,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_6.jpg",
             "colors": [
@@ -167,7 +167,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_6.jpg",
             "colors": [
@@ -185,7 +185,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": false,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_6.jpg",
             "colors": [
@@ -203,7 +203,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -221,7 +221,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -239,7 +239,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -257,7 +257,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -275,7 +275,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -293,7 +293,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -311,7 +311,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -329,7 +329,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -347,7 +347,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -365,7 +365,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [
@@ -383,7 +383,7 @@
             "user": "",
             "userIcon": "/imgs/user_icon/user_icon.jpg",
             "state": true,
-            "size": "",
+            "size": [],
             "messagesNumber": "",
             "url": "/imgs/img_1.jpg",
             "colors": [

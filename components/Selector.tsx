@@ -5,7 +5,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilterState } from '../store/filters';
-import { RootState } from '../store';
 import "../styles/Selector.css"
 
 interface SelectorsProps { };
@@ -19,18 +18,12 @@ const lists: Lists[] = [
     {
         name: ["sizes", "图片尺寸"],
         data: [
-            "1280 × 720",
-            "1366 × 768",
-            "1600 × 900",
-            "1920 × 1080",
-            "2340 × 1080",
-            "2400 × 1080",
-            "2560 × 1440",
-            "2778 × 1284",
-            "2880 × 1440",
+            "横图",
+            "竖图",
+            "正方形"
         ],
     }, {
-        name: ["tags", "图片类型"],
+        name: ["tags", "图片标签"],
         data: [
             "风景",
             "桌面壁纸",
@@ -47,16 +40,17 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
     const dispatch = useDispatch();
     const [isVisible, setIsVisible] = useState<number | null>(null);
     const [isInputValue, setIsInputValue] = useState<string[]>(Array(lists.length).fill(""));
-    const [isIconRotate, setIsIconRotate] = useState("rotate(0deg)");
+    const [isIconRotate, setIsIconRotate] = useState<string>("rotate(0deg)");
     const [fontColor, setFontColor] = useState<string[]>(Array(lists.length).fill("#666666"));
     const setRotate = "rotate(180deg)";
+    const [className, setClassName] = useState<string>("");
 
     const btnOnClick = (index: number) => {
         setIsVisible(event => (event === index ? null : index));
         setIsIconRotate(setRotate);
     };
 
-    const inputChange = (index: number, value: string) => {
+    const inputChange = (index: number, value: string, className: string[]) => {
         setIsInputValue(values => {
             const newValues = [...values];
             newValues[index] = value;
@@ -68,17 +62,19 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
             return newColor;
         });
         setIsVisible(null);
+        setClassName(className[0]);
     };
 
-    // const handleInputBlur = () => {
-    //     dispatch(setFilterState({ key: "color", value: "" }));
-    // };
-
-    // useEffect(() => {
-    //     if (colorValue.length === 7) {
-    //         setFontColor(colorValue);
-    //     }
-    // }, [colorValue]);
+    useEffect(() => {
+        if (className === "sizes") {
+            dispatch(setFilterState({ key: "size", value: isInputValue[0] }));
+            dispatch(setFilterState({ key: "active", value: "size" }));
+        }
+        if (className === "tags") {
+            dispatch(setFilterState({ key: "tags", value: isInputValue[1] }));
+            dispatch(setFilterState({ key: "active", value: "tags" }));
+        }
+    }, [isInputValue, className]);
 
     return (
         <div className="selector">
@@ -105,7 +101,7 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
                         <div className="select-lists"
                             style={{ display: isVisible === index ? "block" : "none" }}>
                             {value.data.map((data, i) => (
-                                <div key={i} onClick={() => inputChange(index, data)}>{data}</div>
+                                <div key={i} onClick={() => inputChange(index, data, value.name)}>{data}</div>
                             ))}
                         </div>
                     </div>

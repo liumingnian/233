@@ -24,6 +24,7 @@ const Color: React.FC<ColorsProps> = ({ }) => {
     const handleInputBlur = () => {
         if (colorValue.length === 7) {
             dispatch(setFilterState({ key: "color", value: colorValue }));
+            dispatch(setFilterState({ key: "active", value: "color" }));
         }
     };
 

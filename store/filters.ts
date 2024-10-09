@@ -11,6 +11,7 @@ interface FilterState {
     size: string;
     tags: string;
     grade: string;
+    active: string;
 };
 
 interface RootState {
@@ -23,6 +24,7 @@ const initialState: FilterState = {
     size: "",
     tags: "",
     grade: "",
+    active: "",
 };
 
 const filtersSlice = createSlice({

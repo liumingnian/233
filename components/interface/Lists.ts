@@ -10,7 +10,7 @@ export type Lists = {
         user: string,
         userIcon: string,
         state: boolean,
-        size: string,
+        size: string[],
         messagesNumber: string,
         url: string,
         colors: string[],
