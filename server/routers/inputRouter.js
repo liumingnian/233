@@ -27,13 +27,18 @@ function activeShapes(size) {
     if (size.length > 0) {
         const width = size[0];
         const height = size[1];
+        /**
+         * 0：横
+         * 1：竖
+         * 2：正
+         */
         switch (true) {
             case width > height:
-                return "横图";
+                return "0";
             case width < height:
-                return "竖图";
+                return "1";
             case width === height:
-                return "正方形";
+                return "2";
             default:
                 break;
         };
@@ -68,7 +73,6 @@ router.post("/", async (req, res) => {
          * size:形状过滤器
          * tags:标签过滤器
          */
-
         let result = filterData(data, value => {
             return !key || value.name === key
         });
@@ -82,7 +86,10 @@ router.post("/", async (req, res) => {
         result = filterData(result, value => {
             return !tags || value.data.tags.indexOf(tags) !== -1
         });
-        res.status(200).json(result);
+
+        //过滤器初始化显示所有
+        color === "clear" || size === "clear" || tags === "clear" ?
+            res.status(200).json(data) : res.status(200).json(result)
 
     } catch (error) {
         res.status(500).json({ error: "无法读取数据" });

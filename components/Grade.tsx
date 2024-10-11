@@ -6,7 +6,8 @@ import { RootState } from '../store';
 import SlideButton from './SlideButton';
 import "../styles/Grade.css"
 
-interface GradesProps { };
+interface GradesProps {
+};
 
 const btnList: string[] = [
     "R15",
@@ -15,7 +16,7 @@ const btnList: string[] = [
 
 const Grade: React.FC<GradesProps> = ({ }) => {
     const [btn, setBtn] = useState<number | null>(0);
-    const btnChange = (index: number) => {setBtn(index);};
+    const btnChange = (index: number) => { setBtn(index); };
     return (
         <div className="grade">
             {btnList.map((value, index) => (
@@ -24,7 +25,7 @@ const Grade: React.FC<GradesProps> = ({ }) => {
                     <div className="title">{value}</div>
                     <SlideButton onClick={() => btnChange(index)}
                         bgColor={{ backgroundColor: btn === index ? "#0099FF" : "#f0f0f0" }}
-                        left={{marginLeft: btn === index ? "42px" : "2px"}}
+                        left={{ marginLeft: btn === index ? "42px" : "2px" }}
                     />
                 </div>
             ))}

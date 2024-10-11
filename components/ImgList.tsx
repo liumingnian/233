@@ -3,6 +3,7 @@
  */
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { setFilterState } from '../store/filters';
 import { RootState } from '../store';
 import { Lists } from './interface/Lists';
 import { apiGetImages } from "../utils/apiGetImages";
@@ -13,9 +14,11 @@ interface ImgListProps {
 };
 
 const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
-    const btnNames = "加载中...";
+    const dispatch = useDispatch();
     const [lists, stateLists] = useState<Lists[]>([]);
     const getFiltersValue = useSelector((state: RootState) => state.filters);
+    const noImgInfo: string[] = ["没有找到符合您的图片，请修改搜索内容后在一次检索。"];
+    // const hasUpdatedRef = useRef(false);
 
     //刷新加载获取图片列表
     useEffect(() => {
@@ -40,7 +43,9 @@ const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
             stateLists(response);
         }
         fetchFiltersData();
-    }, [getFiltersValue.color, getFiltersValue.size, getFiltersValue.tags]);
+    }, [getFiltersValue.color,
+    getFiltersValue.size,
+    getFiltersValue.tags]);
 
     return (
         <div className="img-lists">
@@ -84,7 +89,7 @@ const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
                         </li>
                     ))
                 ) : (
-                    <div className="err">没有搜索到对应条件的图。</div>
+                    <div className="no-img-info">{noImgInfo}</div>
                 )}
             </ul>
         </div>

@@ -138,3 +138,8 @@
 .img-lists .user-icon:hover {
     cursor: pointer;
 }
+
+.no-img-info{
+    width: 100%;
+    text-align: center;
+}

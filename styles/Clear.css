@@ -1,0 +1,33 @@
+.clear-btn {
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.clear-btn div {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #949494;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.clear-btn img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.5s ease;
+}
+
+.clear-btn div:hover {
+    cursor: pointer;
+    border: none;
+    opacity: 1;
+    background-color: #0099FF;
+}
+
+.clear-btn div:hover img {
+    content: url("/icon/clear.svg");
+}
