@@ -2,7 +2,7 @@
  * 首页过滤器组件
  */
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { setFilterState } from '../store/filters';
 import { RootState } from '../store';
 import { Lists } from './interface/Lists';
@@ -14,7 +14,6 @@ interface ImgListProps {
 };
 
 const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
-    const dispatch = useDispatch();
     const [lists, stateLists] = useState<Lists[]>([]);
     const getFiltersValue = useSelector((state: RootState) => state.filters);
     const noImgInfo: string[] = ["没有找到符合您的图片，请修改搜索内容后在一次检索。"];
@@ -45,7 +44,8 @@ const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
         fetchFiltersData();
     }, [getFiltersValue.color,
     getFiltersValue.size,
-    getFiltersValue.tags]);
+    getFiltersValue.tags,
+    getFiltersValue.grade]);
 
     return (
         <div className="img-lists">

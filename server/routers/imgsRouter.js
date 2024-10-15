@@ -17,11 +17,22 @@ const getData = (value) => {
     });
 };
 
+function filterData(target, conditionCallback) {
+    let result = [];
+    target.forEach((value) => {
+        if (conditionCallback(value)) result.push(value);
+    });
+    return result;
+};
+
 router.get('/', async (req, res) => {
     const dataFile = path.join(__dirname, "../../data/HoneImgList.json");
     try {
         const data = await getData(dataFile);
-        res.status(200).json(data);
+        let result = filterData(data, value => {
+            return value.data.grade !== "1"
+        });
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ error: "无法读取数据" });
     }

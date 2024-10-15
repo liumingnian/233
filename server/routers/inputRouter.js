@@ -47,14 +47,18 @@ function activeShapes(size) {
     }
 };
 
-
-function filterData(target, conditionCallback) {
+function filterData(target, grade, conditionCallback) {
     let result = [];
-    target.forEach((value) => {
-        if (conditionCallback(value)) {
-            result.push(value);
-        }
-    });
+    // grade:0(R15),1(R18)
+    if (grade !== "1") {
+        target.forEach((value) => {
+            if (conditionCallback(value)) result.push(value);
+        });
+    } else {
+        target.forEach((value) => {
+            if (value.data.grade === grade) result.push(value);
+        });
+    }
     return result;
 };
 
@@ -72,18 +76,19 @@ router.post("/", async (req, res) => {
          * color:颜色过滤器
          * size:形状过滤器
          * tags:标签过滤器
+         * grade:
          */
-        let result = filterData(data, value => {
+        let result = filterData(data, grade, value => {
             return !key || value.name === key
         });
-        result = filterData(result, value => {
+        result = filterData(result, grade, value => {
             return !color || value.data.colors.indexOf(color) !== -1
         });
-        result = filterData(result, value => {
+        result = filterData(result, grade, value => {
             const shape = activeShapes(value.data.size);
             return !size || shape === size;
         });
-        result = filterData(result, value => {
+        result = filterData(result, grade, value => {
             return !tags || value.data.tags.indexOf(tags) !== -1
         });
 

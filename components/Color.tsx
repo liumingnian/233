@@ -42,7 +42,8 @@ const Color: React.FC<ColorsProps> = ({ handleClear, onComplete }) => {
             setColorValue("");
             setIsVisible(false);
             dispatch(setFilterState({ key: "color", value: "clear" }));
-            onComplete()
+            onComplete();
+            setFontColor("");
         }
     }, [handleClear]);
 
