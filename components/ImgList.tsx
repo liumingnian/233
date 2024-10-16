@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 import { setFilterState } from '../store/filters';
 import { RootState } from '../store';
 import { Lists } from './interface/Lists';
+import { toImgInfo, toUserInfo } from "./router/routes";
 import { apiGetImages } from "../utils/apiGetImages";
+import Link from "next/link";
 import "../styles/ImgList.css";
 
 interface ImgListProps {
@@ -54,9 +56,11 @@ const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
                     lists.map((value, index) => (
                         <li key={index}>
                             <div className="img-top-info">
-                                <div className="user-icon">
-                                    <img src={`${value.data.userIcon}`} alt="" />
-                                </div>
+                                <Link href={toUserInfo.userInfo.path}>
+                                    <div className="user-icon">
+                                        <img src={`${value.data.userIcon}`} alt="" />
+                                    </div>
+                                </Link>
                                 <div className="state-icon">
                                     {(value.data.state)
                                         ? (<img src={"/icon/collect.svg"} alt="" />)
@@ -65,9 +69,11 @@ const ImgList: React.FC<ImgListProps> = ({ imgListData }) => {
                                 </div>
                             </div>
                             <div className="img-box">
-                                <div className='img-bg-color'>
-                                    <img className="img" src={`${value.data.url}`} alt="" />
-                                </div>
+                                <Link href={toImgInfo.imgInfo.path}>
+                                    <div className='img-bg-color'>
+                                        <img className="img" src={`${value.data.url}`} alt="" />
+                                    </div>
+                                </Link>
                             </div>
                             <div className="img-bottom-info">
                                 <div className="colors">

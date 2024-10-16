@@ -4,6 +4,7 @@ import Ranking from "../../pages/Ranking";
 import Collection from "../../pages/Collection";
 import UpLoad from "../../pages/UpLoad";
 import Login from "../../pages/Login";
+import ImgInfo from "../../pages/ImgInfo";
 
 export interface IRoute {
     name: string;
@@ -51,3 +52,20 @@ export const upAndLoginRoutes: Record<string, IRoute> = {
         component: Login,
     }
 }
+
+export const toImgInfo: Record<string, IRoute> = {
+    imgInfo: {
+        name: "图片详情",
+        path: '/ImgInfo',
+        component: ImgInfo,
+    }
+}
+
+export const toUserInfo: Record<string, IRoute> = {
+    userInfo: {
+        name: "用户详情",
+        path: '/ImgInfo',
+        component: ImgInfo,
+    }
+}
+

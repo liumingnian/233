@@ -1,0 +1,158 @@
+.img-info {
+    padding-top: 40px;
+    margin: 0 120px;
+}
+
+.img-info .img-related-info {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-info-box {
+    width: 75%;
+    padding-right: 35px;
+}
+
+.related-info-box {
+    width: 25%;
+    padding: 0 20px;
+}
+
+.img-info-box .img {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.img-info-box .info .img-title {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-info-box .info .img-title .icon {
+    display: flex;
+}
+
+.img-info-box .info .img-title .icon img {
+    width: 28px;
+    height: 28px;
+    margin-left: 26px;
+}
+
+.img-info-box .info ul {
+    display: flex;
+    margin-top: 20px;
+}
+
+.img-info-box .info ul li {
+    padding: 4px 12px;
+    margin-right: 10px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #0099FF;
+}
+
+.img-info-box .info .text {
+    padding: 28px 0;
+    font-size: 16px;
+    color: #333333;
+}
+
+.related-info-box .user-info {
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding-bottom: 26px;
+}
+
+.related-info-box .user-info .user-icon {
+    margin-right: 20px;
+}
+
+.related-info-box .user-info .user-icon img {
+    width: 60px;
+    border-radius: 30px;
+    border: solid 2px #0099FF;
+}
+
+.related-info-box .btn-info .text {
+    margin: 0;
+    border-radius: 40px;
+}
+
+.related-info-box .user-info .user-synopsis .user-name {
+    font-size: 18px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.related-info-box .user-info .user-synopsis .user-title {
+    font-size: 16px;
+    color: #999999;
+}
+
+.related-info-box .collections-info,
+.related-info-box .download-info {
+    margin-top: 50px;
+}
+
+.related-info-box .collections-info-title {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: #333333;
+}
+
+.related-info-box .collections-info-title .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.related-info-box .collections-info ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.related-info-box .collections-info ul li {
+    flex: 0 0 33.3333%;
+    padding-top: 12px;
+}
+
+.related-info-box .collections-info ul li:nth-child(3n+2) {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.related-info-box .collections-info ul li img {
+    height: 120px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.related-info-box .download-info div {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+.related-info-box .download-info ul{
+    padding-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+.related-info-box .download-info ul li{
+    width: 150px;
+    padding: 2px 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    border-radius: 20px;
+    text-align: center;
+    color: #333333;
+    border: solid 1px #333333;
+}
