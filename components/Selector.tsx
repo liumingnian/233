@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setFilterState } from '../store/filters';
 import "../styles/Selector.css"
 
-interface SelectorsProps { };
+interface SelectorsProps {
+};
 
 interface Lists {
     name: string[],
@@ -44,13 +45,14 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
     const [fontColor, setFontColor] = useState<string[]>(Array(lists.length).fill("#666666"));
     const setRotate = "rotate(180deg)";
     const [className, setClassName] = useState<string>("");
+    const [sizeCode, setSizeCode] = useState<string>("");
 
     const btnOnClick = (index: number) => {
         setIsVisible(event => (event === index ? null : index));
         setIsIconRotate(setRotate);
     };
 
-    const inputChange = (index: number, value: string, className: string[]) => {
+    const inputChange = (index: number, value: string, className: string[], selectIndex: number) => {
         setIsInputValue(values => {
             const newValues = [...values];
             newValues[index] = value;
@@ -63,16 +65,16 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
         });
         setIsVisible(null);
         setClassName(className[0]);
+        setSizeCode(String(selectIndex));
     };
 
     useEffect(() => {
         if (className === "sizes") {
-            dispatch(setFilterState({ key: "size", value: isInputValue[0] }));
-            dispatch(setFilterState({ key: "active", value: "size" }));
+            //0：横，1：竖，2：正方形
+            dispatch(setFilterState({ key: "size", value: sizeCode }));
         }
         if (className === "tags") {
             dispatch(setFilterState({ key: "tags", value: isInputValue[1] }));
-            dispatch(setFilterState({ key: "active", value: "tags" }));
         }
     }, [isInputValue, className]);
 
@@ -101,7 +103,10 @@ const Selector: React.FC<SelectorsProps> = ({ }) => {
                         <div className="select-lists"
                             style={{ display: isVisible === index ? "block" : "none" }}>
                             {value.data.map((data, i) => (
-                                <div key={i} onClick={() => inputChange(index, data, value.name)}>{data}</div>
+                                <div key={i}
+                                    onClick={() => inputChange(index, data, value.name, i)}>
+                                    {data}
+                                </div>
                             ))}
                         </div>
                     </div>

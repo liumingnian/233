@@ -4,11 +4,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilterState } from '../store/filters';
+import { RootState } from '../store';
 import "../styles/Color.css"
 
-interface ColorsProps { };
+interface ColorsProps {
+    handleClear: boolean;
+    onComplete: () => void;
+};
 
-const Color: React.FC<ColorsProps> = ({ }) => {
+const Color: React.FC<ColorsProps> = ({ handleClear, onComplete }) => {
     const dispatch = useDispatch();
     const [colorValue, setColorValue] = useState("");
     const [isVisible, setIsVisible] = useState(false);
@@ -24,15 +28,24 @@ const Color: React.FC<ColorsProps> = ({ }) => {
     const handleInputBlur = () => {
         if (colorValue.length === 7) {
             dispatch(setFilterState({ key: "color", value: colorValue }));
-            dispatch(setFilterState({ key: "active", value: "color" }));
         }
     };
 
+    //显示16进制color code，且长度必须为7
     useEffect(() => {
-        if (colorValue.length === 7) {
-            setFontColor(colorValue);
-        }
+        if (colorValue.length === 7) setFontColor(colorValue);
     }, [colorValue]);
+
+    //清除按钮激活后清除过滤器的value,并重新加载图片
+    useEffect(() => {
+        if (handleClear) {
+            setColorValue("");
+            setIsVisible(false);
+            dispatch(setFilterState({ key: "color", value: "clear" }));
+            onComplete();
+            setFontColor("");
+        }
+    }, [handleClear]);
 
     return (
         <div className="color">
